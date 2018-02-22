@@ -39,4 +39,12 @@ public class GeoHashSizeTable {
 		}
 		return bits;
 	}
+
+	public static final int numberOfBitsForOverlappingGeoHashCharacterCompatible(BoundingBox boundingBox) {
+		int bits = numberOfBitsForOverlappingGeoHash(boundingBox);
+		while (bits % 5 != 0) {
+			bits--;
+		}
+		return bits;
+	}
 }
